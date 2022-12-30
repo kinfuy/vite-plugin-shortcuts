@@ -8,7 +8,7 @@
   "files": [
     "dist"
   ],
-  "repository": "",
+  "repository": "https://github.com/kinfuy/vite-plugin-shortcuts",
   "keywords": [
     "vite",
     "vite-plugin",
