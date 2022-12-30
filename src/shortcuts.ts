@@ -1,17 +1,10 @@
 import colors from 'picocolors';
 import type { ViteDevServer } from 'vite';
+import { ShortcutsOptions } from '.';
 
 export function isDefined<T>(value: T | undefined | null): value is T {
   return value != null;
 }
-
-export type BindShortcutsOptions = {
-  /**
-   * Print a one line hint to the terminal.
-   */
-  print?: boolean;
-  customShortcuts?: (CLIShortcut | undefined | null)[];
-};
 
 export type CLIShortcut = {
   key: string;
@@ -19,20 +12,22 @@ export type CLIShortcut = {
   action(server: ViteDevServer): void | Promise<void>;
 };
 
-export function bindShortcuts(server: ViteDevServer, opts?: BindShortcutsOptions): void {
+export function bindShortcuts(server: ViteDevServer, opts?: ShortcutsOptions): void {
   if (!server.httpServer || !process.stdin.isTTY || process.env.CI) {
     return;
   }
 
-  const shortcuts = (opts?.customShortcuts ?? []).filter(isDefined).concat(BASE_SHORTCUTS);
+  const shortcuts = (opts?.shortcuts ?? []).filter(isDefined).concat(BASE_SHORTCUTS);
 
   let actionRunning = false;
 
   const onInput = async (input: string) => {
     // ctrl+c or ctrl+d
     if (input === '\x03' || input === '\x04') {
-      process.emit('SIGTERM')
-      // process.exit(1);
+      if (opts?.dealWithctrl) {
+        if (typeof opts.dealWithctrl === 'function') opts.dealWithctrl(server);
+        else process.exit(1)
+      }
     }
 
     if (actionRunning) return;
