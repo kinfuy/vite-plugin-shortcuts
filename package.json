@@ -1,0 +1,36 @@
+{
+  "name": "vite-plugin-shortcuts",
+  "description": "plugin shortcuts into Vite dev server",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "kinfuy (https://github.com/kinfuy)",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": "",
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "shortcuts"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prettier": "pnpm prettier-ci --write",
+    "prettier-ci": "prettier --check '**/*.{ts,json,md,yml}'"
+  },
+  "peerDependencies": {
+    "typescript": "^4",
+    "vite": "^2 || ^3 || ^4"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.2",
+    "@types/node": "^18.11.12",
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.0",
+    "picocolors": "^1.0.0",
+    "open": "^8.4.0",
+    "cross-spawn": "^7.0.3"
+  }
+}
