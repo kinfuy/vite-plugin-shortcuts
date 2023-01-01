@@ -16,7 +16,6 @@ export function bindShortcuts(server: ViteDevServer, opts?: ShortcutsOptions): v
   if (!server.httpServer || !process.stdin.isTTY || process.env.CI) {
     return;
   }
-
   const shortcuts = (opts?.shortcuts ?? []).filter(isDefined).concat(BASE_SHORTCUTS);
 
   let actionRunning = false;
@@ -24,9 +23,13 @@ export function bindShortcuts(server: ViteDevServer, opts?: ShortcutsOptions): v
   const onInput = async (input: string) => {
     // ctrl+c or ctrl+d
     if (input === '\x03' || input === '\x04') {
+      debugger
       if (opts?.dealWithctrl) {
         if (typeof opts.dealWithctrl === 'function') opts.dealWithctrl(server);
-        else process.exit(1)
+        else  {
+          process.emit('SIGTERM')
+
+        }
       }
     }
 
@@ -59,12 +62,4 @@ export function bindShortcuts(server: ViteDevServer, opts?: ShortcutsOptions): v
   });
 }
 
-const BASE_SHORTCUTS: CLIShortcut[] = [
-  {
-    key: 'c',
-    description: 'clear console',
-    action(server) {
-      server.config.logger.clearScreen('error');
-    },
-  },
-];
+const BASE_SHORTCUTS: CLIShortcut[] = [];

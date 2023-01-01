@@ -1,10 +1,11 @@
 {
   "name": "vite-plugin-shortcuts",
   "description": "plugin shortcuts into Vite dev server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "author": "kinfuy (https://github.com/kinfuy)",
   "main": "dist/index.js",
+  "types": "dist/*",
   "files": [
     "dist"
   ],
