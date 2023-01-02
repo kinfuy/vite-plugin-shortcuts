@@ -1,6 +1,6 @@
 # vite-plugin-shortcuts
 
-为 vite4 添加额外自定义快捷键人口，如果是 vite3，添加快捷键功能
+为 vite4 添加额外自定义快捷键人口，如果 vite 当前版本不支持快捷键，则添加快捷键功能
 
 <p>
   <a href="https://www.npmjs.org/package/vite-plugin-shortcuts">
@@ -9,7 +9,7 @@
   <br>
 </p>
 
-English | [简体中文](./README.md)
+简体中文 | [English](./README.md)
 
 ## Installation
 

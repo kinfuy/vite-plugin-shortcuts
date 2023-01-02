@@ -1,6 +1,6 @@
 # vite-plugin-shortcuts
 
-Add additional customized shortcut key population for vite4. If it is vite3, add shortcut key function
+Add additional customized shortcut key population for vite4. If the current version of vite does not support shortcut keys, add the shortcut key function
 
 <p>
   <a href="https://www.npmjs.org/package/vite-plugin-shortcuts">
@@ -9,7 +9,7 @@ Add additional customized shortcut key population for vite4. If it is vite3, add
   <br>
 </p>
 
-简体中文 | [简体中文 English](./README.md)
+English | [简体中文](./README-zh_CN.md)
 
 ## Installation
 
