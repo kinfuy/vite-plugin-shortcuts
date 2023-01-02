@@ -10,7 +10,7 @@
 ## Installation
 
 ```sh
-npm i -D vite-plugin-shortcuts
+pnpm add vite-plugin-shortcuts
 ```
 
 ## Usage
