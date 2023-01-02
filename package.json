@@ -1,29 +1,26 @@
 {
-  "name": "vite-plugin-shortcuts",
-  "description": "plugin shortcuts into Vite dev server",
-  "version": "0.0.2",
-  "license": "MIT",
-  "author": "kinfuy (https://github.com/kinfuy)",
-  "main": "dist/index.js",
-  "types": "dist/*",
-  "files": [
-    "dist"
-  ],
-  "repository": "https://github.com/kinfuy/vite-plugin-shortcuts",
-  "keywords": [
-    "vite",
-    "vite-plugin",
-    "shortcuts"
-  ],
   "scripts": {
-    "build": "tsc",
-    "prettier": "pnpm prettier-ci --write",
-    "prettier-ci": "prettier --check '**/*.{ts,json,md,yml}'"
-  },
-  "peerDependencies": {
-    "vite": "^4"
+    "build": "gulp --require sucrase/register/ts --gulpfile build/gulpfile.ts",
+    "update:version": "sucrase-node build/version.ts",
+    "clear": "rimraf package/dist",
+    "prepare": "husky install",
+    "log": "changeloger",
+    "lint:js": "eslint -c ./.eslintrc.js --fix --ext .jsx,.js,.vue \"package/**/*.{jsx,ts,js,vue}\" "
   },
   "devDependencies": {
+    "@alqmc/build-ts": "^0.0.9",
+    "@alqmc/build-utils": "^0.0.5",
+    "@alqmc/eslint-config": "^0.0.4",
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-angular": "^8.3.4",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@types/gulp": "^4.0.9",
+    "changeloger": "0.1.0",
+    "gulp": "^4.0.2",
+    "husky": "^8.0.1",
+    "lint-staged": "^10.5.4",
+    "rimraf": "^3.0.2",
+    "sucrase": "^3.20.3",
     "@types/cross-spawn": "^6.0.2",
     "@types/node": "^18.11.12",
     "prettier": "^2.8.1",

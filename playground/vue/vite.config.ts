@@ -1,7 +1,7 @@
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import vuePlugin from '@vitejs/plugin-vue';
+import { shortcutsPlugin } from 'vite-plugin-shortcuts';
 import { vueI18nPlugin } from './CustomBlockPlugin';
-import { shortcutsPlugin } from '../../dist';
 
 export default defineConfig({
   resolve: {
@@ -12,7 +12,6 @@ export default defineConfig({
   },
   plugins: [
     shortcutsPlugin({
-      dealWithctrl: false,
       shortcuts: [
         {
           key: 'c',
@@ -28,8 +27,30 @@ export default defineConfig({
             server.config.logger.clearScreen('error'), server.printUrls();
           },
         },
+        {
+          key: 'r',
+          description: 'restart the server',
+          async action(server) {
+            await server.restart();
+          },
+        },
+        {
+          key: 'u',
+          description: 'show server url',
+          action(server) {
+            server.config.logger.info('');
+            server.printUrls();
+          },
+        },
+        {
+          key: 'q',
+          description: 'quit',
+          async action(server) {
+            await server.close().finally(() => process.exit());
+          },
+        },
       ],
-    }),
+    }) as any,
     vuePlugin({
       // reactivityTransform: true,
     }),

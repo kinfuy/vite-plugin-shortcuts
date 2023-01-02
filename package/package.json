@@ -1,0 +1,36 @@
+{
+  "name": "vite-plugin-shortcuts",
+  "version": "0.0.3",
+  "description": "plugin shortcuts into Vite dev server",
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "shortcuts"
+  ],
+  "license": "MIT",
+  "author": "kinfuy (https://github.com/kinfuy)",
+  "files": [
+    "dist",
+    "README.md",
+    "package.json"
+  ],
+  "main": "./dist/lib/index.js",
+  "module": "./dist/es/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./distlib/index.js",
+      "import": "./dist/es/index.mjs"
+    },
+    "./es": "./dist/es/index.mjs",
+    "./lib": "./dist/lib/index.js",
+    "./es/*.mjs": "./dist/es/*.mjs",
+    "./es/*": "./dist/es/*.mjs",
+    "./lib/*.js": "./dist/lib/*.js",
+    "./lib/*": "./dist/lib/*.js",
+    "./*": "./dist/*"
+  },
+  "repository": "https://github.com/kinfuy/vite-plugin-shortcuts",
+  "dependencies": {
+    "picocolors": "^1.0.0"
+  }
+}

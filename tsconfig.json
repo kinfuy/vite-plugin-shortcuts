@@ -1,24 +1,18 @@
 {
-  "include": ["src"],
   "compilerOptions": {
+    "target": "ESNext",
     "module": "ESNext",
-    "lib": ["esnext"],
-    "target": "esnext",
-    "declaration": true,
-    "outDir": "dist",
-    "skipLibCheck": true,
-
-    /* Imports */
-    "moduleResolution": "node", // Allow `index` imports
-    "resolveJsonModule": true, // Allow json import
-    "forceConsistentCasingInFileNames": true, // Avoid difference in case between file name and import
-    "esModuleInterop": true, // Allow import fs from "fs"
-
-    /* Linting */
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "useUnknownInCatchVariables": true
-  }
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": false,
+    "removeComments": true,
+    "noLib": false,
+  },
+  "exclude": ["node_modules"]
 }
+
