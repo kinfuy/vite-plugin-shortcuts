@@ -17,7 +17,7 @@ pnpm add vite-plugin-shortcuts
 
 ```ts
 import { defineConfig } from 'vite';
-import { shortcutsPlugin } from 'vite-plugin-tsc-watch';
+import { shortcutsPlugin } from 'vite-plugin-shortcuts';
 
 export default defineConfig({
   plugins: [
