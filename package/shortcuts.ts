@@ -1,3 +1,4 @@
+import * as readline from 'readline';
 import colors from 'picocolors';
 import type { ShortcutsOptions } from '.';
 import type { ViteDevServer } from 'vite';
@@ -28,8 +29,16 @@ export function bindShortcuts(
   const onInput = async (input: string) => {
     // ctrl+c or ctrl+d
     if (input === '\x03' || input === '\x04') {
-      process.stdin.setRawMode(false);
-      process.stdin.write(input);
+      // TODO 判断是否由npm run all 或者其他子进程调起
+      // eslint-disable-next-line no-constant-condition
+      if (1) {
+        server.config.logger.warn(
+          colors.yellow(
+            'starts vite dev server with the JS API ctrl c or ctrl d need double'
+          )
+        );
+      }
+      process.emit('SIGTERM');
       return;
     }
 
@@ -57,6 +66,8 @@ export function bindShortcuts(
     await shortcut.action(server);
     actionRunning = false;
   };
+
+  readline.emitKeypressEvents(process.stdin);
 
   process.stdin.setRawMode(true);
 
