@@ -58,11 +58,11 @@ importers:
     specifiers:
       npm-run-all: ^4.1.5
       vite: ^3.0.0
-      vite-plugin-shortcuts: workspace:*
+      vite-plugin-shortcuts: ^0.0.4
     devDependencies:
       npm-run-all: 4.1.5
       vite: 3.2.5
-      vite-plugin-shortcuts: link:../../package
+      vite-plugin-shortcuts: 0.0.4
 
   playground/vue:
     specifiers:
@@ -6985,6 +6985,12 @@ packages:
       cloneable-readable: 1.1.3
       remove-trailing-separator: 1.1.0
       replace-ext: 1.0.1
+    dev: true
+
+  /vite-plugin-shortcuts/0.0.4:
+    resolution: {integrity: sha512-N0ziVnP13cLSwOyC5J2O4PheXMvrv3fKHc+9bNDrwLYh2xjihZVE74pu99vfef2cvtD/Tb+RAZiqO282YOXk+g==}
+    dependencies:
+      picocolors: 1.0.0
     dev: true
 
   /vite/3.2.5:

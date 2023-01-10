@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-shortcuts",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "plugin shortcuts into Vite dev server",
   "keywords": [
     "vite",
@@ -18,7 +18,7 @@
   "module": "./dist/es/index.mjs",
   "exports": {
     ".": {
-      "require": "./distlib/index.js",
+      "require": "./dist/lib/index.js",
       "import": "./dist/es/index.mjs"
     },
     "./es": "./dist/es/index.mjs",

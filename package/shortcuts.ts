@@ -28,8 +28,6 @@ export function bindShortcuts(
 
   const onInput = async (input: string) => {
     // ctrl+c or ctrl+d
-    console.log('ppix', process.ppid);
-    console.log('pid', process.pid);
     if (input === '\x03' || input === '\x04') {
       // TODO npm run all ctrl c need double
       // server.config.logger.warn(
