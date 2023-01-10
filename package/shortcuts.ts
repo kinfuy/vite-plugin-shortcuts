@@ -1,6 +1,6 @@
 import * as readline from 'readline';
 import colors from 'picocolors';
-import type { ShortcutsOptions } from '.';
+import type { ShortcutsOptions } from './index';
 import type { ViteDevServer } from 'vite';
 
 export function isDefined<T>(value: T | undefined | null): value is T {
@@ -41,11 +41,13 @@ export function bindShortcuts(
 
     if (actionRunning) return;
 
+    const outputName = opts?.outputName ? opts.outputName : `Plugin Shortcuts`;
+
     if (input === 'h') {
       server.config.logger.info(
         [
           '',
-          colors.bold('  Plugin Shortcuts'),
+          colors.bold(`'   ${outputName}`),
           ...shortcuts.map(
             (shortcut) =>
               colors.dim('  press ') +

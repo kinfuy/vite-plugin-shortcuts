@@ -1,4 +1,9 @@
 {
+  "name": "vite-plugin-shortcuts-monorepo",
+  "private": true,
+  "packageManager": "pnpm@7.1.0",
+  "author": "kinfuy",
+  "license": "MIT",
   "scripts": {
     "build": "gulp --require sucrase/register/ts --gulpfile build/gulpfile.ts",
     "update:version": "sucrase-node build/version.ts",

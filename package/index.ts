@@ -3,6 +3,10 @@ import type { Plugin, ViteDevServer } from 'vite';
 import type { CLIShortcut } from './shortcuts';
 
 export interface ShortcutsOptions {
+  /**
+   * @description default `Plugin Shortcuts`
+   */
+  outputName?: string;
   shortcuts: CLIShortcut[];
 }
 
