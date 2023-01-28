@@ -29,13 +29,8 @@ export function bindShortcuts(
   const onInput = async (input: string) => {
     // ctrl+c or ctrl+d
     if (input === '\x03' || input === '\x04') {
-      // TODO npm run all ctrl c need double
-      // server.config.logger.warn(
-      //   colors.yellow(
-      //     'starts vite dev server with the JS API ctrl c or ctrl d need double'
-      //   )
-      // );
-      process.emit('SIGTERM');
+      // from https://github.com/vitejs/vite/pull/11563
+      await server.close().finally(() => process.exit(1));
       return;
     }
 
