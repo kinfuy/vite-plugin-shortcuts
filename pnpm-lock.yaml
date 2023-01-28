@@ -77,7 +77,7 @@ importers:
       sass: 1.57.1
       stylus: 0.59.0
       vite: 3.2.5_uju26gq6yy2oe2jsohgiu4lva4
-      vite-plugin-shortcuts: link:../../package
+      vite-plugin-shortcuts: 0.0.5
 
   playground/vue-jsx:
     specifiers:
@@ -6860,6 +6860,12 @@ packages:
       cloneable-readable: 1.1.3
       remove-trailing-separator: 1.1.0
       replace-ext: 1.0.1
+    dev: true
+
+  /vite-plugin-shortcuts/0.0.5:
+    resolution: {integrity: sha512-H9UgS72LL9yMrwtq9gCinU3fsWXnkdRekMIQJud6x4DEXclgz3sCpB0PZToi+EVf9DlN4xz1bF3jk55sjGb4NQ==}
+    dependencies:
+      picocolors: 1.0.0
     dev: true
 
   /vite/3.2.5_uju26gq6yy2oe2jsohgiu4lva4:

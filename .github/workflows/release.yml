@@ -20,8 +20,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - name: publish    
+      - name: publish
         run: |
+          cd package
           npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
           npm publish --access=public
         env:
