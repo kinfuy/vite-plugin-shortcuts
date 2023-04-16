@@ -42,7 +42,7 @@ export function bindShortcuts(
       server.config.logger.info(
         [
           '',
-          colors.bold(`'   ${outputName}`),
+          colors.bold(`   ${outputName}`),
           ...shortcuts.map(
             (shortcut) =>
               colors.dim('  press ') +
