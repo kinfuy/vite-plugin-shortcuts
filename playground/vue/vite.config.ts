@@ -12,6 +12,7 @@ export default defineConfig({
   },
   plugins: [
     shortcutsPlugin({
+      outputName: '自定义快捷键',
       shortcuts: [
         {
           key: 'c',

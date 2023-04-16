@@ -24,6 +24,13 @@ export function bindShortcuts(
     .filter(isDefined)
     .concat(BASE_SHORTCUTS);
 
+  if (shortcuts.length === 0) {
+    server.config.logger.warn(
+      colors.yellow('No additional shortcut keys configured')
+    );
+    return;
+  }
+
   let actionRunning = false;
 
   const onInput = async (input: string) => {
@@ -42,7 +49,7 @@ export function bindShortcuts(
       server.config.logger.info(
         [
           '',
-          colors.bold(`   ${outputName}`),
+          colors.bold(`  ${outputName}`),
           ...shortcuts.map(
             (shortcut) =>
               colors.dim('  press ') +

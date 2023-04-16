@@ -13,7 +13,7 @@
     "vue": "^3.2.41"
   },
   "devDependencies": {
-    "vite-plugin-shortcuts": "^0.0.5",
+    "vite-plugin-shortcuts": "workspace:*",
     "vite": "^3.0.0",
     "@vitejs/plugin-vue": "^3.0.0",
     "js-yaml": "^4.1.0",
