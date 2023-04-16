@@ -35,5 +35,5 @@
     "open": "^8.4.0",
     "cross-spawn": "^7.0.3"
   },
-  "version": "0.0.6"
+  "version": "0.0.7"
 }
