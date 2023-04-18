@@ -43,10 +43,18 @@ export function shortcutsPlugin(shortcutsOptions?: ShortcutsOptions): Plugin {
       // https://github.com/kinfuy/vite-plugin-shortcuts/issues/1
       server.printUrls = () => {
         _printUrls();
-        if (version < 4) {
+        if (version === 3) {
           server.config.logger.info(
             colors.dim(colors.green('  ➜')) +
               colors.dim('  press ') +
+              colors.bold('h') +
+              colors.dim(' to show help')
+          );
+        }
+        if (version === 2) {
+          server.config.logger.info(
+            colors.dim('  > help:') +
+              colors.dim('     press ') +
               colors.bold('h') +
               colors.dim(' to show help')
           );
