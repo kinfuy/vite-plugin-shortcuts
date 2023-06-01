@@ -11,6 +11,20 @@
 
 简体中文 | [English](./README.md)
 
+## Demo
+
+### vite4
+
+![vite4](https://user-images.githubusercontent.com/37766068/235663282-c94f23d9-cb84-429b-94e1-625620bc1b01.png)
+
+### vite3
+
+![vite3](https://user-images.githubusercontent.com/37766068/235663330-8d416b95-c4e4-4824-8086-a653d62f6a42.png)
+
+### vite2
+
+![vite2](https://user-images.githubusercontent.com/37766068/235663376-9a56c8e7-994e-48e9-b175-a7722dc7d94e.png)
+
 ## Installation
 
 ```sh
