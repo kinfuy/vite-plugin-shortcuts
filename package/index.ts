@@ -4,12 +4,15 @@ import colors from 'picocolors';
 import { bindShortcuts } from './shortcuts';
 import type { Plugin, ViteDevServer } from 'vite';
 import type { CLIShortcut } from './shortcuts';
+
+export type DefaultShortCut = 'c' | 'q' | 'o' | 's' | 'r' | 'u';
 export interface ShortcutsOptions {
   /**
    * @description default `Plugin Shortcuts`
    */
   outputName?: string;
-  shortcuts: CLIShortcut[];
+  defaults?: boolean | DefaultShortCut[];
+  shortcuts?: CLIShortcut[];
 }
 /**
  * 查询版本号

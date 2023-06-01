@@ -7,3 +7,4 @@ export declare type CLIShortcut = {
     action(server: ViteDevServer): void | Promise<void>;
 };
 export declare function bindShortcuts(server: ViteDevServer, opts?: ShortcutsOptions): void;
+export declare const openBrowser: (url: string, app?: string) => void;

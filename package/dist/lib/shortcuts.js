@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var readline = require('readline');
+var child_process = require('child_process');
 var colors = require('picocolors');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -35,7 +36,25 @@ function bindShortcuts(server, opts) {
   if (!server.httpServer || !process.stdin.isTTY || process.env.CI) {
     return;
   }
-  const shortcuts = (opts?.shortcuts ?? []).filter(isDefined).concat(BASE_SHORTCUTS);
+  const shortcuts = (opts?.shortcuts ?? []).filter(isDefined);
+  if (opts?.defaults) {
+    if (typeof opts.defaults === "boolean") {
+      BASE_SHORTCUTS.forEach((d) => {
+        if (shortcuts.every((s) => s.key !== d.key)) {
+          shortcuts.push(d);
+        }
+      });
+    }
+    if (Array.isArray(opts.defaults)) {
+      BASE_SHORTCUTS.forEach((d) => {
+        if (opts.defaults.includes(
+          d.key
+        ) && shortcuts.every((s) => s.key !== d.key)) {
+          shortcuts.push(d);
+        }
+      });
+    }
+  }
   if (shortcuts.length === 0) {
     server.config.logger.warn(
       colors__default["default"].yellow("No additional shortcut keys configured")
@@ -76,7 +95,63 @@ function bindShortcuts(server, opts) {
     process.stdin.off("data", onInput).pause();
   });
 }
-const BASE_SHORTCUTS = [];
+const BASE_SHORTCUTS = [
+  {
+    key: "c",
+    description: "close console",
+    action: (server) => {
+      server.config.logger.clearScreen("error");
+    }
+  },
+  {
+    key: "s",
+    description: "reset console",
+    action: (server) => {
+      server.config.logger.clearScreen("error"), server.printUrls();
+    }
+  },
+  {
+    key: "r",
+    description: "restart the server",
+    async action(server) {
+      await server.restart();
+    }
+  },
+  {
+    key: "u",
+    description: "show server url",
+    action(server) {
+      server.config.logger.info("");
+      server.printUrls();
+    }
+  },
+  {
+    key: "q",
+    description: "quit",
+    async action(server) {
+      await server.close().finally(() => process.exit());
+    }
+  },
+  {
+    key: "o",
+    description: "open default browser",
+    async action(server) {
+      if (server.openBrowser)
+        server.openBrowser();
+      else if (server.resolvedUrls?.local) {
+        openBrowser(server.resolvedUrls?.local[0]);
+      }
+    }
+  }
+];
+const openBrowser = (url, app = "chrome") => {
+  try {
+    child_process.exec(`start ${app} ${url}`);
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 exports.bindShortcuts = bindShortcuts;
 exports.isDefined = isDefined;
+exports.openBrowser = openBrowser;

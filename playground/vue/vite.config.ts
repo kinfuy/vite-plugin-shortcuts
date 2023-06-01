@@ -13,36 +13,37 @@ export default defineConfig({
   plugins: [
     shortcutsPlugin({
       outputName: '自定义快捷键',
+      defaults: ['c', 'u', 'o'],
       shortcuts: [
-        {
-          key: 'c',
-          description: 'close console',
-          action: (server) => {
-            server.config.logger.clearScreen('error');
-          },
-        },
-        {
-          key: 's',
-          description: 'reset console',
-          action: (server) => {
-            server.config.logger.clearScreen('error'), server.printUrls();
-          },
-        },
-        {
-          key: 'r',
-          description: 'restart the server',
-          async action(server) {
-            await server.restart();
-          },
-        },
-        {
-          key: 'u',
-          description: 'show server url',
-          action(server) {
-            server.config.logger.info('');
-            server.printUrls();
-          },
-        },
+        // {
+        //   key: 'c',
+        //   description: 'close console',
+        //   action: (server) => {
+        //     server.config.logger.clearScreen('error');
+        //   },
+        // },
+        // {
+        //   key: 's',
+        //   description: 'reset console',
+        //   action: (server) => {
+        //     server.config.logger.clearScreen('error'), server.printUrls();
+        //   },
+        // },
+        // {
+        //   key: 'r',
+        //   description: 'restart the server',
+        //   async action(server) {
+        //     await server.restart();
+        //   },
+        // },
+        // {
+        //   key: 'u',
+        //   description: 'show server url',
+        //   action(server) {
+        //     server.config.logger.info('');
+        //     server.printUrls();
+        //   },
+        // },
         {
           key: 'q',
           description: 'quit',
